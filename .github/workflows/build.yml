@@ -1,0 +1,54 @@
+name: Build
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [windows-latest, macos-latest]
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pyinstaller
+          if (Test-Path requirements.txt) { pip install -r requirements.txt }
+        shell: pwsh
+        if: runner.os == 'Windows'
+
+      - name: Install dependencies (macOS)
+        run: |
+          python3 -m pip install --upgrade pip
+          pip3 install pyinstaller
+          if [ -f requirements.txt ]; then
+            pip3 install -r requirements.txt
+          fi
+        if: runner.os == 'macOS'
+
+      - name: Build Windows
+        if: runner.os == 'Windows'
+        run: |
+          pyinstaller --onefile --windowed --name RemoveLoopPoints app.py
+
+      - name: Build macOS
+        if: runner.os == 'macOS'
+        run: |
+          pyinstaller --windowed --name RemoveLoopPoints app.py
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: RemoveLoopPoints-${{ runner.os }}
+          path: dist/*

@@ -6,10 +6,30 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXFileReference section */
+		9ED2F4442FFEB1DE00E783FB /* app.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = app.py; sourceTree = "<group>"; };
+		9ED2F4452FFEB21300E783FB /* wav_cleaner.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = wav_cleaner.py; sourceTree = "<group>"; };
+		9ED2F4462FFEB26600E783FB /* requirements.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = requirements.txt; sourceTree = "<group>"; };
+		9ED2F4472FFEB27000E783FB /* build.py */ = {isa = PBXFileReference; lastKnownFileType = text.script.python; path = build.py; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		9ED2F44B2FFEB9EF00E783FB /* .github */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = .github;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXGroup section */
 		9ED2F43D2FFEB1C200E783FB = {
 			isa = PBXGroup;
 			children = (
+				9ED2F44B2FFEB9EF00E783FB /* .github */,
+				9ED2F4442FFEB1DE00E783FB /* app.py */,
+				9ED2F4452FFEB21300E783FB /* wav_cleaner.py */,
+				9ED2F4462FFEB26600E783FB /* requirements.txt */,
+				9ED2F4472FFEB27000E783FB /* build.py */,
 			);
 			sourceTree = "<group>";
 		};
