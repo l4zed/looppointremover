@@ -1,3 +1,0 @@
-([('RemoveLoopPoints',
-   '/Users/l4zed/Desktop/app/loop points cleaner/dist/RemoveLoopPoints',
-   'EXECUTABLE')],)
